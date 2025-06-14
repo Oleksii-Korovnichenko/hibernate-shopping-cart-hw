@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "shopping_cards")
+@Table(name = "shopping_cart")
 public class ShoppingCart {
     @Id
     private Long id;
@@ -22,7 +22,7 @@ public class ShoppingCart {
     @JoinColumn(name = "id")
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "shoppingCart")
     private List<Ticket> tickets;
 
     public Long getId() {
